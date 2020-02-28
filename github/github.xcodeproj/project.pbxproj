@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF412A132409368600CD2837 /* GithubImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A122409368600CD2837 /* GithubImageProvider.swift */; };
+		FF412A152409386300CD2837 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A142409386300CD2837 /* UserView.swift */; };
 		FFC092F3240843A0009D7301 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC092F2240843A0009D7301 /* AppDelegate.swift */; };
 		FFC092F5240843A0009D7301 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC092F4240843A0009D7301 /* SceneDelegate.swift */; };
 		FFC092FC240843A0009D7301 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFC092FB240843A0009D7301 /* Assets.xcassets */; };
@@ -79,6 +81,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF412A122409368600CD2837 /* GithubImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubImageProvider.swift; sourceTree = "<group>"; };
+		FF412A142409386300CD2837 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		FFC092EF240843A0009D7301 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC092F2240843A0009D7301 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFC092F4240843A0009D7301 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				FFC093602408E204009D7301 /* GithubProvider.swift */,
+				FF412A122409368600CD2837 /* GithubImageProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			children = (
 				FFC0935C2408E177009D7301 /* GithubMainCellView.swift */,
 				FFC0935E2408E187009D7301 /* GithubMainCellViewModel.swift */,
+				FF412A142409386300CD2837 /* UserView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -431,12 +437,14 @@
 				FFC093632408E239009D7301 /* SearchResult.swift in Sources */,
 				FFC093582408DEFB009D7301 /* BaseViewModel.swift in Sources */,
 				FFC092F3240843A0009D7301 /* AppDelegate.swift in Sources */,
+				FF412A152409386300CD2837 /* UserView.swift in Sources */,
 				FFC0936C2408F30F009D7301 /* GithubColors.swift in Sources */,
 				FFC092F5240843A0009D7301 /* SceneDelegate.swift in Sources */,
 				FFC0935F2408E187009D7301 /* GithubMainCellViewModel.swift in Sources */,
 				FFC093652408E256009D7301 /* RepoItem.swift in Sources */,
 				FFC093542408DE24009D7301 /* GithubMainViewController.swift in Sources */,
 				FFC0935A2408DF1D009D7301 /* BaseViewController.swift in Sources */,
+				FF412A132409368600CD2837 /* GithubImageProvider.swift in Sources */,
 				FFC0935D2408E177009D7301 /* GithubMainCellView.swift in Sources */,
 				FFC093672408E270009D7301 /* License.swift in Sources */,
 				FFC093712408FAC5009D7301 /* UINavigationControllerExtension.swift in Sources */,
