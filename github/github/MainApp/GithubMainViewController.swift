@@ -16,6 +16,7 @@ import RxDataSources
 class GithubMainViewController : BaseViewController {
     private var searchBar = UISearchBar()
     private var tableView = UITableView()
+    private let cellIdentifier = "githubcell"
     
     private var viewModel: GithubMainViewModel? {
         return baseViewModel as? GithubMainViewModel
@@ -62,6 +63,7 @@ class GithubMainViewController : BaseViewController {
         tableView.separatorColor = GithubColors.Table.separator
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
+        tableView.register(GithubMainCellView.self, forCellReuseIdentifier: cellIdentifier)
         view.addSubview(tableView)
         
         self.tableView = tableView
@@ -80,10 +82,11 @@ class GithubMainViewController : BaseViewController {
     }
     
     override func setupBindings() {
-        let dataSource = RxTableViewSectionedReloadDataSource<GitHubSection>(configureCell: { (dataSource, tableView, indexPath, cellViewModel) -> UITableViewCell in
-            let cell = UITableViewCell()
-            cell.textLabel?.text = cellViewModel.repoItem.name
-            return cell
+        let dataSource = RxTableViewSectionedReloadDataSource<GitHubSection>(configureCell: { [weak self] (dataSource, tableView, indexPath, cellViewModel) -> UITableViewCell in
+            guard let self = self else { return UITableViewCell()}
+            let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? GithubMainCellView
+            cell?.setupCell(cellViewModel: cellViewModel)
+            return cell ?? UITableViewCell()
         })
         
         viewModel?.searchResult().flatMapLatest({ searchResult -> Observable<[GitHubSection]> in
@@ -102,6 +105,14 @@ class GithubMainViewController : BaseViewController {
             .subscribe(onNext: {[weak self] text in
                 guard let self = self else {return}
                 self.viewModel?.search(text ?? "")
+            }).disposed(by: disposeBag)
+        
+        tableView.rx
+            .modelSelected(GithubMainCellViewModel.self)
+            .subscribe(onNext: { selected in
+                if let htmlURL = selected.repoItem.htmlURL,let url = URL(string: htmlURL) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
             }).disposed(by: disposeBag)
     }
 }

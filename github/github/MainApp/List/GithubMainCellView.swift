@@ -7,11 +7,42 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
+import RxCocoa
 
 class GithubMainCellView: UITableViewCell {
     
+    private let viewModel = PublishSubject<GithubMainCellViewModel>()
+    private let disposeBag = DisposeBag()
     
-    func setupCell() {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupUI()
+        setupConstraints()
+        setupBindings()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupCell(cellViewModel: GithubMainCellViewModel) {
+        self.viewModel.onNext(cellViewModel)
+    }
+    
+    private func setupUI() {
+        backgroundColor = GithubColors.Table.cellBkg
+    }
+    
+    private func setupConstraints() {
         
+    }
+    
+    private func setupBindings() {
+        viewModel.subscribe(onNext: {[weak self] vm in
+            guard let self = self else {return}
+            self.textLabel?.text = vm.repoItem.name
+            }).disposed(by: disposeBag)
     }
 }
