@@ -12,7 +12,7 @@ class UserView: UIView {
     private let userName = UILabel()
     private let userType = UILabel()
     private let userImage = UIImageView()
-    private let margin = 4
+    private let margin = 2
     
     override init(frame: CGRect) {
         super.init(frame: frame)

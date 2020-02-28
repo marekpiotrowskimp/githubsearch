@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		FF412A132409368600CD2837 /* GithubImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A122409368600CD2837 /* GithubImageProvider.swift */; };
 		FF412A152409386300CD2837 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A142409386300CD2837 /* UserView.swift */; };
+		FF412A17240964F700CD2837 /* GithubMainViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A16240964F700CD2837 /* GithubMainViewModelSpec.swift */; };
 		FFC092F3240843A0009D7301 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC092F2240843A0009D7301 /* AppDelegate.swift */; };
 		FFC092F5240843A0009D7301 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC092F4240843A0009D7301 /* SceneDelegate.swift */; };
 		FFC092FC240843A0009D7301 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFC092FB240843A0009D7301 /* Assets.xcassets */; };
 		FFC092FF240843A0009D7301 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC092FD240843A0009D7301 /* LaunchScreen.storyboard */; };
-		FFC0930A240843A0009D7301 /* githubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC09309240843A0009D7301 /* githubTests.swift */; };
 		FFC0931624084E6C009D7301 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC0931524084E6C009D7301 /* SnapKit.framework */; };
 		FFC0931724084E6C009D7301 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFC0931524084E6C009D7301 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFC0933524085154009D7301 /* RxGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC0931924084E7F009D7301 /* RxGesture.framework */; };
@@ -83,6 +83,7 @@
 /* Begin PBXFileReference section */
 		FF412A122409368600CD2837 /* GithubImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubImageProvider.swift; sourceTree = "<group>"; };
 		FF412A142409386300CD2837 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		FF412A16240964F700CD2837 /* GithubMainViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubMainViewModelSpec.swift; sourceTree = "<group>"; };
 		FFC092EF240843A0009D7301 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC092F2240843A0009D7301 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFC092F4240843A0009D7301 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		FFC092FE240843A0009D7301 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFC09300240843A0009D7301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFC09305240843A0009D7301 /* githubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = githubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFC09309240843A0009D7301 /* githubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = githubTests.swift; sourceTree = "<group>"; };
 		FFC0930B240843A0009D7301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFC0931524084E6C009D7301 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		FFC0931924084E7F009D7301 /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
@@ -186,8 +186,8 @@
 		FFC09308240843A0009D7301 /* githubTests */ = {
 			isa = PBXGroup;
 			children = (
-				FFC09309240843A0009D7301 /* githubTests.swift */,
 				FFC0930B240843A0009D7301 /* Info.plist */,
+				FF412A16240964F700CD2837 /* GithubMainViewModelSpec.swift */,
 			);
 			path = githubTests;
 			sourceTree = "<group>";
@@ -455,7 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFC0930A240843A0009D7301 /* githubTests.swift in Sources */,
+				FF412A17240964F700CD2837 /* GithubMainViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

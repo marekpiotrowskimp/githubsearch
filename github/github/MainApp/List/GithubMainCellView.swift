@@ -21,12 +21,12 @@ class GithubMainCellView: UITableViewCell {
     private let branch = UILabel()
     private let language = UILabel()
     private let licence = UILabel()
-    private let score = UILabel()
+    private let stars = UILabel()
     private let userContainer = UserView()
     
     private let margin = 10
     private let marginLeft = 25
-
+    private let userWidth = 64
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,6 +41,13 @@ class GithubMainCellView: UITableViewCell {
     
     func setupCell(cellViewModel: GithubMainCellViewModel) {
         self.viewModel.onNext(cellViewModel)
+    }
+    
+    private func setupSelection() {
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = GithubColors.Table.cellHighlight
+        bgColorView.layer.masksToBounds = true
+        self.selectedBackgroundView = bgColorView
     }
     
     private func setupUI() {
@@ -61,12 +68,13 @@ class GithubMainCellView: UITableViewCell {
         fullName.font = GithubFonts.Table.fullName
         fullName.adjustsFontSizeToFitWidth = true
         addSubview(fullName)
-
+        
         prepareLabel(label: branch)
         prepareLabel(label: language)
         prepareLabel(label: licence)
-        prepareLabel(label: score)
+        prepareLabel(label: stars)
         addSubview(userContainer)
+        setupSelection()
     }
     
     private func setupConstraints() {
@@ -98,7 +106,7 @@ class GithubMainCellView: UITableViewCell {
             make.top.equalTo(branch.snp.bottom)
         }
         
-        score.snp.makeConstraints { make in
+        stars.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(marginLeft)
             make.top.equalTo(licence.snp.bottom)
             make.bottom.equalToSuperview().inset(margin)
@@ -107,8 +115,8 @@ class GithubMainCellView: UITableViewCell {
         userContainer.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(marginLeft)
             make.bottom.equalToSuperview().inset(margin)
-            make.width.equalTo(64)
-            make.width.equalTo(96)
+            make.top.equalToSuperview().offset(margin)
+            make.width.equalTo(userWidth)
         }
     }
     
@@ -121,12 +129,12 @@ class GithubMainCellView: UITableViewCell {
         branch.text = "Default: \(item.defaultBranch ?? "")"
         licence.text = item.license?.name
         userContainer.fillUserInformation(user: item.owner)
-        score.text = "Score: \(item.score ?? 0)"
+        stars.text = "Stars: \(item.stargazersCount ?? 0)"
         
         if let imageUrl = item.owner?.avatarURL {
             vm.provider.fetchImage(url: imageUrl).subscribe(onNext:{[weak self] image in
                 self?.userContainer.setImageForUser(image)
-                }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         }
     }
     
@@ -134,6 +142,6 @@ class GithubMainCellView: UITableViewCell {
         viewModel.subscribe(onNext: {[weak self] vm in
             guard let self = self else {return}
             self.fillCell(vm)
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
     }
 }

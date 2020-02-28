@@ -35,6 +35,9 @@ class GithubColors {
         static let searchBarTextFieldBkg = getColor(hex: "2B2D36")
         static let searchBarTextFieldFrame = getColor(hex: "4D525A")
         static let searchBarText = getColor(hex: "BFD0D7")
+        static let waitingBackground = getColor(hex: "21232A", alpha: 0.95)
+        static let waitingIndicator = getColor(hex: "2E4C68")
+        static let noResult = getColor(hex: "FFFFFF")
     }
 }
 

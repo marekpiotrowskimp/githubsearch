@@ -14,8 +14,10 @@ import RxGesture
 import RxDataSources
 
 class GithubMainViewController : BaseViewController {
-    private var searchBar = UISearchBar()
-    private var tableView = UITableView()
+    private let searchBar = UISearchBar()
+    private let tableView = UITableView()
+    private let waitingIndicator = UIActivityIndicatorView(style: .large)
+    private let noResults = UILabel()
     private let cellIdentifier = "githubcell"
     
     private var viewModel: GithubMainViewModel? {
@@ -23,7 +25,6 @@ class GithubMainViewController : BaseViewController {
     }
 
     private func setupSearchBar() {
-        let searchBar = UISearchBar()
         searchBar.searchBarStyle = .prominent
         searchBar.placeholder = " Search..."
         searchBar.sizeToFit()
@@ -47,7 +48,6 @@ class GithubMainViewController : BaseViewController {
         searchBar.searchTextField.layer.cornerRadius = 10
 
         navigationItem.titleView = searchBar
-        self.searchBar = searchBar
     }
     
     private func setupMainView() {
@@ -57,26 +57,45 @@ class GithubMainViewController : BaseViewController {
         navigationController?.navigationBar.backgroundColor = GithubColors.Main.searchBarBkg
     }
     
+    private func setupWaitingIndicatorAndMessage() {
+        noResults.backgroundColor = GithubColors.Main.background
+        noResults.textColor = GithubColors.Main.noResult
+        noResults.font = GithubFonts.Main.noResult
+        noResults.text = "No Search Results"
+        noResults.textAlignment = .center
+        noResults.isHidden = false
+        view.addSubview(noResults)
+        waitingIndicator.backgroundColor = GithubColors.Main.waitingBackground
+        waitingIndicator.color = GithubColors.Main.waitingIndicator
+        view.addSubview(waitingIndicator)
+    }
+    
     private func setupTable() {
-        let tableView = UITableView()
         tableView.backgroundColor = GithubColors.Main.background
         tableView.separatorColor = GithubColors.Table.separator
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
         tableView.register(GithubMainCellView.self, forCellReuseIdentifier: cellIdentifier)
         view.addSubview(tableView)
-        
-        self.tableView = tableView
     }
     
     override func setupUI() {
         setupMainView()
         setupSearchBar()
         setupTable()
+        setupWaitingIndicatorAndMessage()
     }
     
     override func setupConstraints() {
         self.tableView.snp.makeConstraints{ make in
+            make.edges.equalToSuperview()
+        }
+        
+        self.noResults.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        self.waitingIndicator.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
@@ -89,21 +108,28 @@ class GithubMainViewController : BaseViewController {
             return cell ?? UITableViewCell()
         })
         
-        viewModel?.searchResult().flatMapLatest({ searchResult -> Observable<[GitHubSection]> in
-            let cellViewModels = searchResult.items?.map({ item in
-                GithubMainCellViewModel(repoItem: item)
-            }) ?? []
-            return Observable.just([GitHubSection(model: "", items: cellViewModels)])
-            }).bind(to: self.tableView.rx.items(dataSource: dataSource))
+        viewModel?.searchResult()
+            .do(onNext: { [weak self] sr in
+                self?.noResults.isHidden = !(sr.items?.isEmpty ?? true)
+            })
+            .flatMapLatest({ searchResult -> Observable<[GitHubSection]> in
+                let cellViewModels = searchResult.items?.map{GithubMainCellViewModel(repoItem: $0)} ?? []
+                return Observable.just([GitHubSection(model: "", items: cellViewModels)])
+            })
+            .do(onNext: {[weak self] _ in
+                self?.waitingIndicator.stopAnimating() })
+            .bind(to: self.tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         
         searchBar.rx.text.skip(1)
             .distinctUntilChanged()
-            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .debounce(RxTimeInterval.milliseconds(1000), scheduler: MainScheduler.instance)
+            .do(onNext: { [weak self] _ in self?.searchBar.resignFirstResponder() })
             .startWith("githubsearch")
             .subscribe(onNext: {[weak self] text in
                 guard let self = self else {return}
+                self.waitingIndicator.startAnimating()
                 self.viewModel?.search(text ?? "")
             }).disposed(by: disposeBag)
         
