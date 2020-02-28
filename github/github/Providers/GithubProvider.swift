@@ -11,13 +11,13 @@ import RxRelay
 import RxAlamofire
 import Alamofire
 
-protocol GithubSearch {
+protocol GithubSearchProtocol {
    func search(_ text: String) ->  Observable<SearchResult>
 }
 
-class GithubProvider : GithubSearch{
+class GithubProvider : GithubSearchProtocol{
     
-    public static let shard : GithubSearch = GithubProvider()
+    public static let shard : GithubSearchProtocol = GithubProvider()
     private let sManager = SessionManager.default
     
     private init() {

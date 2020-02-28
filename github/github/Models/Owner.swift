@@ -17,7 +17,7 @@ struct Owner: Codable {
     var subscriptionsURL, organizationsURL, reposURL: String?
     var eventsURL: String?
     var receivedEventsURL: String?
-    var type: TypeEnum?
+    var type: String?
     var siteAdmin: Bool?
 
     enum CodingKeys: String, CodingKey {
@@ -39,9 +39,4 @@ struct Owner: Codable {
         case type
         case siteAdmin = "site_admin"
     }
-}
-
-enum TypeEnum: String, Codable {
-    case organization = "Organization"
-    case user = "User"
 }

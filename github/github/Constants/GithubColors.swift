@@ -18,21 +18,26 @@ class GithubColors {
     }
     
     class Table: NSObject {
-        @objc static let cellBkg = getColor(hex: "2B2D36")
-        @objc static let cellTitleClosedByNotam = getColor(hex: "EDB01A")
-        @objc static let cellSubtitle = getColor(hex: "BFD0D7")
-        @objc static let cellHighlight = getColor(hex: "2E4C68")
-        @objc static let separator = getColor(hex: "4D525A")
-        @objc static let checkmark = getColor(hex: "36ABFF")
+        static let cellBkg = getColor(hex: "2B2D36")
+        static let cellTitle = getColor(hex: "EDB01A")
+        static let cellFullTitle = getColor(hex: "FFFFFF")
+        static let cellText = getColor(hex: "BFD0D7")
+        static let cellSubtitle = getColor(hex: "BFD0D7")
+        static let cellHighlight = getColor(hex: "2E4C68")
+        static let separator = getColor(hex: "4D525A")
+        static let checkmark = getColor(hex: "36ABFF")
+        static let user = getColor(hex: "36ABFF")
     }
     
     class Main: NSObject {
-        @objc static let background = getColor(hex: "21232A")
-        @objc static let searchBarBkg = getColor(hex: "31333A")
-        @objc static let searchBarTextFieldBkg = getColor(hex: "2B2D36")
-        @objc static let searchBarTextFieldFrame = getColor(hex: "4D525A")
-        @objc static let searchBarText = getColor(hex: "BFD0D7")
-        
+        static let background = getColor(hex: "21232A")
+        static let searchBarBkg = getColor(hex: "31333A")
+        static let searchBarTextFieldBkg = getColor(hex: "2B2D36")
+        static let searchBarTextFieldFrame = getColor(hex: "4D525A")
+        static let searchBarText = getColor(hex: "BFD0D7")
+        static let waitingBackground = getColor(hex: "21232A", alpha: 0.95)
+        static let waitingIndicator = getColor(hex: "2E4C68")
+        static let noResult = getColor(hex: "FFFFFF")
     }
 }
 

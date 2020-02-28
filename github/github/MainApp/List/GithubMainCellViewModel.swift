@@ -12,9 +12,11 @@ import RxRelay
 class GithubMainCellViewModel: BaseViewModel {
     
     let repoItem : RepoItem
+    let provider : GithubImageProtocol
     
-    init(repoItem: RepoItem) {
+    init(repoItem: RepoItem, provider: GithubImageProtocol = GithubImageProvider.shard) {
         self.repoItem = repoItem
+        self.provider = provider
     }
 
 }

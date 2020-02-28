@@ -3,15 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF412A132409368600CD2837 /* GithubImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A122409368600CD2837 /* GithubImageProvider.swift */; };
+		FF412A152409386300CD2837 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A142409386300CD2837 /* UserView.swift */; };
+		FF412A17240964F700CD2837 /* GithubMainViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A16240964F700CD2837 /* GithubMainViewModelSpec.swift */; };
+		FF412A202409699600CD2837 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC0932E24084EDD009D7301 /* RxBlocking.framework */; platformFilter = ios; };
+		FF412A212409699C00CD2837 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC0932224084EAC009D7301 /* RxTest.framework */; platformFilter = ios; };
+		FF412A23240969AB00CD2837 /* RxBlocking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FFC0932E24084EDD009D7301 /* RxBlocking.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF412A24240969AF00CD2837 /* RxTest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FFC0932224084EAC009D7301 /* RxTest.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF412A2824096EE900CD2837 /* MockGithubSearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A2724096EE900CD2837 /* MockGithubSearchProvider.swift */; };
+		FF412A2B24096F3300CD2837 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF412A2A24096F3300CD2837 /* TestHelper.swift */; };
 		FFC092F3240843A0009D7301 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC092F2240843A0009D7301 /* AppDelegate.swift */; };
 		FFC092F5240843A0009D7301 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC092F4240843A0009D7301 /* SceneDelegate.swift */; };
 		FFC092FC240843A0009D7301 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFC092FB240843A0009D7301 /* Assets.xcassets */; };
 		FFC092FF240843A0009D7301 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC092FD240843A0009D7301 /* LaunchScreen.storyboard */; };
-		FFC0930A240843A0009D7301 /* githubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC09309240843A0009D7301 /* githubTests.swift */; };
 		FFC0931624084E6C009D7301 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC0931524084E6C009D7301 /* SnapKit.framework */; };
 		FFC0931724084E6C009D7301 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFC0931524084E6C009D7301 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFC0933524085154009D7301 /* RxGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC0931924084E7F009D7301 /* RxGesture.framework */; };
@@ -57,6 +65,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		FF412A182409675800CD2837 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF412A23240969AB00CD2837 /* RxBlocking.framework in CopyFiles */,
+				FF412A24240969AF00CD2837 /* RxTest.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FFC0931824084E6C009D7301 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,6 +98,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF412A122409368600CD2837 /* GithubImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubImageProvider.swift; sourceTree = "<group>"; };
+		FF412A142409386300CD2837 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		FF412A16240964F700CD2837 /* GithubMainViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubMainViewModelSpec.swift; sourceTree = "<group>"; };
+		FF412A2724096EE900CD2837 /* MockGithubSearchProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGithubSearchProvider.swift; sourceTree = "<group>"; };
+		FF412A2A24096F3300CD2837 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		FFC092EF240843A0009D7301 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC092F2240843A0009D7301 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFC092F4240843A0009D7301 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +110,6 @@
 		FFC092FE240843A0009D7301 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFC09300240843A0009D7301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFC09305240843A0009D7301 /* githubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = githubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFC09309240843A0009D7301 /* githubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = githubTests.swift; sourceTree = "<group>"; };
 		FFC0930B240843A0009D7301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFC0931524084E6C009D7301 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		FFC0931924084E7F009D7301 /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
@@ -136,12 +159,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF412A202409699600CD2837 /* RxBlocking.framework in Frameworks */,
+				FF412A212409699C00CD2837 /* RxTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF412A2624096ED600CD2837 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FF412A2724096EE900CD2837 /* MockGithubSearchProvider.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FF412A2924096F1D00CD2837 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FF412A2A24096F3300CD2837 /* TestHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		FFC092E6240843A0009D7301 = {
 			isa = PBXGroup;
 			children = (
@@ -182,8 +223,10 @@
 		FFC09308240843A0009D7301 /* githubTests */ = {
 			isa = PBXGroup;
 			children = (
-				FFC09309240843A0009D7301 /* githubTests.swift */,
+				FF412A2924096F1D00CD2837 /* Helper */,
+				FF412A2624096ED600CD2837 /* Mocks */,
 				FFC0930B240843A0009D7301 /* Info.plist */,
+				FF412A16240964F700CD2837 /* GithubMainViewModelSpec.swift */,
 			);
 			path = githubTests;
 			sourceTree = "<group>";
@@ -229,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				FFC093602408E204009D7301 /* GithubProvider.swift */,
+				FF412A122409368600CD2837 /* GithubImageProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -249,6 +293,7 @@
 			children = (
 				FFC0935C2408E177009D7301 /* GithubMainCellView.swift */,
 				FFC0935E2408E187009D7301 /* GithubMainCellViewModel.swift */,
+				FF412A142409386300CD2837 /* UserView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -299,7 +344,7 @@
 				FFC09301240843A0009D7301 /* Sources */,
 				FFC09302240843A0009D7301 /* Frameworks */,
 				FFC09303240843A0009D7301 /* Resources */,
-				FFC0934E24085394009D7301 /* carthage */,
+				FF412A182409675800CD2837 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -397,26 +442,6 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
-		FFC0934E24085394009D7301 /* carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../Carthage/Build/iOS/RxTest.framework",
-				"$(SRCROOT)/../Carthage/Build/iOS/RxBlocking.framework",
-			);
-			name = carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -431,12 +456,14 @@
 				FFC093632408E239009D7301 /* SearchResult.swift in Sources */,
 				FFC093582408DEFB009D7301 /* BaseViewModel.swift in Sources */,
 				FFC092F3240843A0009D7301 /* AppDelegate.swift in Sources */,
+				FF412A152409386300CD2837 /* UserView.swift in Sources */,
 				FFC0936C2408F30F009D7301 /* GithubColors.swift in Sources */,
 				FFC092F5240843A0009D7301 /* SceneDelegate.swift in Sources */,
 				FFC0935F2408E187009D7301 /* GithubMainCellViewModel.swift in Sources */,
 				FFC093652408E256009D7301 /* RepoItem.swift in Sources */,
 				FFC093542408DE24009D7301 /* GithubMainViewController.swift in Sources */,
 				FFC0935A2408DF1D009D7301 /* BaseViewController.swift in Sources */,
+				FF412A132409368600CD2837 /* GithubImageProvider.swift in Sources */,
 				FFC0935D2408E177009D7301 /* GithubMainCellView.swift in Sources */,
 				FFC093672408E270009D7301 /* License.swift in Sources */,
 				FFC093712408FAC5009D7301 /* UINavigationControllerExtension.swift in Sources */,
@@ -447,7 +474,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFC0930A240843A0009D7301 /* githubTests.swift in Sources */,
+				FF412A2B24096F3300CD2837 /* TestHelper.swift in Sources */,
+				FF412A17240964F700CD2837 /* GithubMainViewModelSpec.swift in Sources */,
+				FF412A2824096EE900CD2837 /* MockGithubSearchProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +661,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 797A8DZ79S;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS/";
 				INFOPLIST_FILE = githubTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -654,6 +684,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 797A8DZ79S;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS/";
 				INFOPLIST_FILE = githubTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -9,10 +9,10 @@ import RxSwift
 import RxRelay
 
 class GithubMainViewModel : BaseViewModel {
-    private let provider: GithubSearch
+    private let provider: GithubSearchProtocol
     private let search = PublishSubject<String>()
     
-    init(provider : GithubSearch = GithubProvider.shard) {
+    init(provider : GithubSearchProtocol = GithubProvider.shard) {
         self.provider = provider
     }
     

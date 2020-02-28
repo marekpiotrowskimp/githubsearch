@@ -37,13 +37,17 @@ class GithubFonts {
     class Table: NSObject {
         static let backButton = regularFont(size: 18)
         static let titleSelection = semiBoldFont(size: 18)
-        static let title = semiBoldFont(size: 18)
+        static let name = semiBoldFont(size: 16)
+        static let fullName = regularFont(size: 14)
+        static let text = regularFont(size: 12)
+        static let user = semiBoldFont(size: 10)
     }
     
     class Main: NSObject {
         static let folderTail = semiBoldFont(size: 20)
         static let header = regularFont(size: 14)
         static let searchText = regularFont(size: 14)
+        static let noResult = semiBoldFont(size: 30)
     }
 }
 
