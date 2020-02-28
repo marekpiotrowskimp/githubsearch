@@ -41,6 +41,9 @@
 		FFC093652408E256009D7301 /* RepoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC093642408E256009D7301 /* RepoItem.swift */; };
 		FFC093672408E270009D7301 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC093662408E270009D7301 /* License.swift */; };
 		FFC093692408E282009D7301 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC093682408E282009D7301 /* Owner.swift */; };
+		FFC0936C2408F30F009D7301 /* GithubColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0936B2408F30F009D7301 /* GithubColors.swift */; };
+		FFC0936E2408F31E009D7301 /* GithubFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0936D2408F31E009D7301 /* GithubFonts.swift */; };
+		FFC093712408FAC5009D7301 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC093702408FAC5009D7301 /* UINavigationControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,9 @@
 		FFC093642408E256009D7301 /* RepoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoItem.swift; sourceTree = "<group>"; };
 		FFC093662408E270009D7301 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		FFC093682408E282009D7301 /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		FFC0936B2408F30F009D7301 /* GithubColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubColors.swift; sourceTree = "<group>"; };
+		FFC0936D2408F31E009D7301 /* GithubFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFonts.swift; sourceTree = "<group>"; };
+		FFC093702408FAC5009D7301 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,8 @@
 		FFC092F1240843A0009D7301 /* github */ = {
 			isa = PBXGroup;
 			children = (
+				FFC0936F2408FAA5009D7301 /* Extensions */,
+				FFC0936A2408F2F6009D7301 /* Constants */,
 				FFC093522408DD9B009D7301 /* Models */,
 				FFC093512408DD8F009D7301 /* Providers */,
 				FFC093502408DD7A009D7301 /* MainApp */,
@@ -243,6 +251,23 @@
 				FFC0935E2408E187009D7301 /* GithubMainCellViewModel.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		FFC0936A2408F2F6009D7301 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				FFC0936B2408F30F009D7301 /* GithubColors.swift */,
+				FFC0936D2408F31E009D7301 /* GithubFonts.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		FFC0936F2408FAA5009D7301 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FFC093702408FAC5009D7301 /* UINavigationControllerExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,11 +425,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFC093692408E282009D7301 /* Owner.swift in Sources */,
+				FFC0936E2408F31E009D7301 /* GithubFonts.swift in Sources */,
 				FFC093612408E204009D7301 /* GithubProvider.swift in Sources */,
 				FFC093562408DEC8009D7301 /* GithubMainViewModel.swift in Sources */,
 				FFC093632408E239009D7301 /* SearchResult.swift in Sources */,
 				FFC093582408DEFB009D7301 /* BaseViewModel.swift in Sources */,
 				FFC092F3240843A0009D7301 /* AppDelegate.swift in Sources */,
+				FFC0936C2408F30F009D7301 /* GithubColors.swift in Sources */,
 				FFC092F5240843A0009D7301 /* SceneDelegate.swift in Sources */,
 				FFC0935F2408E187009D7301 /* GithubMainCellViewModel.swift in Sources */,
 				FFC093652408E256009D7301 /* RepoItem.swift in Sources */,
@@ -412,6 +439,7 @@
 				FFC0935A2408DF1D009D7301 /* BaseViewController.swift in Sources */,
 				FFC0935D2408E177009D7301 /* GithubMainCellView.swift in Sources */,
 				FFC093672408E270009D7301 /* License.swift in Sources */,
+				FFC093712408FAC5009D7301 /* UINavigationControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
