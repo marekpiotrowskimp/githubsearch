@@ -35,11 +35,15 @@ class UserView: UIView {
         prepareLabel(userName)
         prepareLabel(userType)
         addSubview(userImage)
+        
+        userImage.layer.cornerRadius = 8
+        userImage.clipsToBounds = true
     }
     
     func setupConstraints() {
         userImage.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
+            make.width.equalTo(userImage.snp.height)
         }
         
         userName.snp.makeConstraints { make in
@@ -57,5 +61,27 @@ class UserView: UIView {
     func fillUserInformation(user: Owner?) {
         userName.text = user?.login
         userType.text = user?.type
+    }
+    
+    func setImageForUser(_ image: UIImage?) {
+        userImage.image = image
+        startAnimation(view: userImage)
+    }
+    
+    func clearView() {
+        userImage.image = nil
+        userName.text = nil
+        userType.text = nil
+    }
+    
+    func startAnimation(view: UIView) {
+        let anim = CABasicAnimation(keyPath: "transform.scale")
+        anim.duration = 1
+        anim.fromValue = 1.5
+        anim.toValue = 1.0
+        anim.fillMode = .both
+        anim.isRemovedOnCompletion = true
+        anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        view.layer.add(anim, forKey: nil)
     }
 }

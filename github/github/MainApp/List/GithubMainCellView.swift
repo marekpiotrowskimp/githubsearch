@@ -112,7 +112,9 @@ class GithubMainCellView: UITableViewCell {
         }
     }
     
-    private func fillCell(item: RepoItem) {
+    private func fillCell(_ vm :GithubMainCellViewModel) {
+        let item: RepoItem = vm.repoItem
+        userContainer.clearView()
         name.text = item.name
         fullName.text = item.fullName
         language.text = "Language: \(item.language ?? "")"
@@ -121,12 +123,17 @@ class GithubMainCellView: UITableViewCell {
         userContainer.fillUserInformation(user: item.owner)
         score.text = "Score: \(item.score ?? 0)"
         
+        if let imageUrl = item.owner?.avatarURL {
+            vm.provider.fetchImage(url: imageUrl).subscribe(onNext:{[weak self] image in
+                self?.userContainer.setImageForUser(image)
+                }).disposed(by: disposeBag)
+        }
     }
     
     private func setupBindings() {
         viewModel.subscribe(onNext: {[weak self] vm in
             guard let self = self else {return}
-            self.fillCell(item: vm.repoItem)
+            self.fillCell(vm)
             }).disposed(by: disposeBag)
     }
 }
