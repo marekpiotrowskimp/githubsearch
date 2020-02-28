@@ -17,7 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()
+        let githubViewModel = GithubMainViewModel()
+        let githubViewController = GithubMainViewController(viewModel: githubViewModel)
+        let navigationController = UINavigationController(rootViewController: githubViewController)
+        window?.rootViewController = navigationController
         window?.rootViewController?.view.backgroundColor = UIColor.red
         window?.makeKeyAndVisible()
     }
