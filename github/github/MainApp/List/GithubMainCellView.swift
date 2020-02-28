@@ -10,4 +10,8 @@ import UIKit
 
 class GithubMainCellView: UITableViewCell {
     
+    
+    func setupCell() {
+        
+    }
 }

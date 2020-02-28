@@ -16,7 +16,12 @@ protocol GithubSearch {
 }
 
 class GithubProvider : GithubSearch{
+    
+    public static let shard : GithubSearch = GithubProvider()
     private let sManager = SessionManager.default
+    
+    private init() {
+    }
     
     func search(_ text: String) ->  Observable<SearchResult> {
         return sManager.rx.responseData(.get, SearchQuery()[text])

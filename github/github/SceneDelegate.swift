@@ -21,7 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let githubViewController = GithubMainViewController(viewModel: githubViewModel)
         let navigationController = UINavigationController(rootViewController: githubViewController)
         window?.rootViewController = navigationController
-        window?.rootViewController?.view.backgroundColor = UIColor.red
         window?.makeKeyAndVisible()
     }
 
