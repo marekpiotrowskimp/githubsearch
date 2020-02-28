@@ -6,4 +6,14 @@
 //  Copyright © 2020 Marek Piotrowski. All rights reserved.
 //
 
-import Foundation
+struct SearchResult: Codable {
+    var totalCount: Int?
+    var incompleteResults: Bool?
+    var items: [RepoItem]?
+
+    enum CodingKeys: String, CodingKey {
+        case totalCount = "total_count"
+        case incompleteResults = "incomplete_results"
+        case items
+    }
+}

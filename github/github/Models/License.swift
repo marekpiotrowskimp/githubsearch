@@ -6,4 +6,15 @@
 //  Copyright © 2020 Marek Piotrowski. All rights reserved.
 //
 
-import Foundation
+struct License: Codable {
+    var key, name, spdxID: String?
+    var url: String?
+    var nodeID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case key, name
+        case spdxID = "spdx_id"
+        case url
+        case nodeID = "node_id"
+    }
+}
