@@ -74,6 +74,7 @@ class GithubMainViewController : BaseViewController {
         tableView.backgroundColor = GithubColors.Main.background
         tableView.separatorColor = GithubColors.Table.separator
         tableView.separatorStyle = .singleLine
+        tableView.scrollsToTop = true
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
         tableView.register(GithubMainCellView.self, forCellReuseIdentifier: cellIdentifier)
         view.addSubview(tableView)
@@ -100,6 +101,12 @@ class GithubMainViewController : BaseViewController {
         }
     }
     
+    private func scrollToTop() {
+        if tableView.numberOfSections > 0 && tableView.numberOfRows(inSection: 0) != 0 {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
+    }
+    
     override func setupBindings() {
         let dataSource = RxTableViewSectionedReloadDataSource<GitHubSection>(configureCell: { [weak self] (dataSource, tableView, indexPath, cellViewModel) -> UITableViewCell in
             guard let self = self else { return UITableViewCell()}
@@ -117,6 +124,7 @@ class GithubMainViewController : BaseViewController {
                 return Observable.just([GitHubSection(model: "", items: cellViewModels)])
             })
             .do(onNext: {[weak self] _ in
+                self?.scrollToTop()
                 self?.waitingIndicator.stopAnimating() })
             .bind(to: self.tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
